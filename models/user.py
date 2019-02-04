@@ -21,6 +21,10 @@ class UserModel(db.Model):
     def find_by_username(cls, username):
         return cls.query.filter_by(username=username).first()
 
+    def json(self):
+        return {'id':self.id,
+                'username':self.username}
+
     @classmethod
     def find_by_id(cls, _id):
         return cls.query.filter_by(id=_id).first()
